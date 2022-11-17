@@ -1,0 +1,302 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    border: none;
+    outline: none;
+    list-style: none;
+    text-decoration: none;
+    transition: 0.5s ease-in-out;
+}
+body{
+    height: 100vh;
+    width: 100%;
+    overflow: hidden;
+    display: flex;
+    flex-wrap: wrap;    
+}
+html{
+    font-size: 20px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+}
+.box{
+    height:50px;
+    width:20%;
+    background-image: linear-gradient(to right,red 50%, blue 50%);
+}
+.startBtn{
+    background-color: white;
+    color:black;
+    box-shadow: 3px 0 10px white;
+    padding: 20px 30px;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    left: 50%;
+    top:50%;
+}
+.startBtn button{
+    border: 1px solid black;
+    text-transform: uppercase;
+    border-radius: 7px;
+    padding: 10px 20px;
+    background-image: linear-gradient(to right, red 50%, blue 50%);
+    cursor: pointer;
+    font-size: 0.9rem;
+    letter-spacing: 2px;
+    transform: scale(0.9);
+
+}
+.startBtn button:hover{
+    background-image: linear-gradient(to right, blue 50%, red 50%);
+    transform: scale(1.2);
+}
+.aboutQuiz,
+main,
+.result{
+   position: absolute;
+   top: 50%;
+   left: 50%;
+   transform: translate(-50%, -50%);
+   width: 650px;
+   background-color: white;
+   color:black;
+   box-shadow: 3px 0 10px white;
+   padding: 30px;
+   display: none;
+}
+.aboutQuiz.active{
+    display: block;
+}
+.aboutQuiz h1{
+    text-transform: uppercase;
+    text-align: center;
+    font-size: 1.5rem;
+    padding-bottom: 0.2rem;
+    font-weight: 400;
+}
+.aboutQuiz .underline{
+    width: 80%;
+    margin: 0 auto;
+    height: 3px;
+    background-image: linear-gradient(to right, red 50%, blue 50%);;
+}
+.aboutQuiz ul{
+    margin-top: 1rem;
+    text-align: justify;
+    padding: 0 1rem;
+    font-size: 0.8rem;
+}
+.aboutQuiz ul li{
+    margin-top: 0.3rem;    
+}
+.aboutQuiz ul li i{
+    color:red;
+    margin-right: 0.6rem;
+    font-size: 0.6rem;
+}
+.aboutQuiz ul li:nth-child(even) i{
+    color: blue;
+}
+.buttons{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin-top: 1.4rem;
+    padding: 0 1rem;
+}
+.buttons button{
+    text-transform: uppercase;
+    border-radius: 7px;
+    border-top: 3px solid red;
+    border-bottom: 3px solid red;
+    border-left:3px solid blue;
+    border-right:3px solid blue;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 0.7rem;
+    letter-spacing: 2px;
+    transform: scale(0.9);
+    background: transparent;
+    font-weight: 700;
+    transition: 0.3s ease-in-out;
+}
+.buttons button.exit:hover{
+    background-color: red;
+    color:white;
+    border: 3px solid white;
+}
+.buttons button.next:hover{
+    background-color: blue;
+    color: white;
+    border: 3px solid white;
+}
+.buttons button:active{
+    transform: scale(1.1);
+}
+main{
+    display: none;
+    padding: 0;
+    width: 700px;
+}
+main.active{
+    display: block;
+}
+main header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0 0 5px 1px rgb(188, 180, 180);
+    padding: 0.5rem;
+}
+main header h3{
+    font-size: 0.8rem;
+    font-weight: 400;
+}
+main header .timer{
+    display: flex;
+    align-items: center;
+    padding: 0.3rem;
+    background-color: rgb(111, 253, 111);
+    border-radius: 0.3rem;
+}
+main header .timer small{
+    font-size: 0.8rem;
+    font-weight: 400;
+    margin-right: 0.3rem;
+}
+main header .timer p{
+    font-size: 1.1rem;
+}
+main section{
+    padding: 0.5rem;
+    margin-top: 1.3rem;
+}
+main section h3{
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+main section ul{
+    margin-top: 0.9rem;
+}
+main section li{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.7rem;
+    position: relative;
+    cursor: pointer;
+    border-left: 2px solid blue;
+    border-right: 2px solid red;
+    margin-top: 0.7rem;
+    transition: 0.2s ease-in-out;
+}
+main section li.disabled{
+    pointer-events: none;
+    cursor: not-allowed;
+}
+ main section li:hover{
+    border:none;
+    background: rgb(234, 207, 163);
+    border-radius: 7px;
+    
+}
+main section li::before{
+    content: "";
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(to right, red 50%, blue 50%);
+}
+main section li::after{
+    content: "";
+    position: absolute;
+    bottom: 0px;
+    right: 0;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(to right, red 50%, blue 50%);
+}
+main section li:hover::before{
+    display: none;
+}
+main section li:hover::after{
+    display: none;
+}
+main section li p{
+    font-size: 1.2rem;
+    margin-left: 0.2rem;
+}
+main section li .iconAnswer{
+    height:fit-content;
+    width:fit-content;
+    text-align: center;
+    line-height: 100%;
+}
+main section li .iconAnswer .fa-check{
+    background: rgb(111, 253, 111);
+    color: white;
+    font-size: 1rem;
+    padding: 0.3rem 0.7rem;
+    border-radius: 50%;
+}
+main section li .iconAnswer .fa-xmark{
+    background: rgb(50, 45, 45);
+    color: white;
+    font-size: 1rem;
+    padding: 0.3rem 0.7rem;
+    border-radius: 50%;
+}
+main footer{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.5rem;
+    margin-top: 1rem;
+}
+main footer p{
+    font-size: 0.8rem;
+    font-weight: 400;
+}
+main footer p strong{
+    font-size: 1.1rem;
+}
+main footer .buttons{
+    padding: 0;
+    margin: 0;
+    transform: scale(1.1);
+}
+.result{
+    text-align: center;
+    line-height: 3rem;
+}
+.result.active{
+    display: block;
+}
+.result i{
+    font-size: 5rem;
+    color: rgb(210, 210, 52);
+}
+.result h3{
+    font-weight: 400;
+    text-transform: uppercase;
+    font-size: 1.2rem;
+}
+.result h3 span{
+    font-weight: bold;
+    font-size: 1.4rem;
+}
+.result small{
+    font-size: 0.8rem;
+}
+.result .buttons{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
